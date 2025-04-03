@@ -125,14 +125,16 @@ const useCaseMappings = {
         model: "sentence-transformers/all-MiniLM-L6-v2",
         inputs: question,
       });
-      embeddingsForUseCase.push(embedding);
+      
+      // Store the question along with its corresponding embedding
+      embeddingsForUseCase.push({ question, embedding });
     }
 
-    // Store the embeddings for each use case
+    // Store the embeddings and questions for each use case
     useCaseEmbeddings[useCase] = embeddingsForUseCase;
   }
 
-  // Save embeddings to a JSON file
-  fs.writeFileSync("./use_case_embeddings.json", JSON.stringify(useCaseEmbeddings, null, 2));
-  console.log("Use case embeddings saved to use_case_embeddings.json!");
+  // Save embeddings to a JSON file with question labels
+  fs.writeFileSync("./use_case_embeddings_with_questions.json", JSON.stringify(useCaseEmbeddings, null, 2));
+  console.log("Use case embeddings with questions saved to use_case_embeddings_with_questions.json!");
 })();
