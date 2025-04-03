@@ -321,22 +321,16 @@ app.get("/chat", async (req, res) => {
         }
       }
 
-      return res.json({
-        response: "BART-related query",
-        bartSimilarity: bartSimilarity.toFixed(4),
-        matchedInfo,
-        filteredUseCases
-      });
+      // Only send the filtered use cases to the frontend
+      return res.json(filteredUseCases);
     } else {
       console.log("Not a BART-related query");
-      return res.json({
-        response: "Not a BART query",
-      });
+      return res.json({});
     }
 
   } catch (error) {
     console.error(error);
-    res.json({ response: "Sorry, something went wrong!" });
+    res.json({});
   }
 });
 

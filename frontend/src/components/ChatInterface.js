@@ -87,6 +87,7 @@ import "./ChatInterface.css";
 const ChatInterface = () => {
   const [messages, setMessages] = useState([]); // Store chat history
   const [input, setInput] = useState(""); // Store current input
+  const [isLoading, setIsLoading] = useState(false); // Track loading state
 
   // Handle sending message on Enter key
   const handleKeyPress = async (e) => {
@@ -95,21 +96,40 @@ const ChatInterface = () => {
       const userMessage = { text: input, sender: "user" };
       setMessages((prev) => [...prev, userMessage]);
       
+      // Set loading state
+      setIsLoading(true);
+      
       // Send to backend
       try {
         const response = await fetch(`http://localhost:5001/chat?query=${encodeURIComponent(input)}`, {
           method: "GET",
         });
         const data = await response.json();
-        const botMessage = { text: data.response || "No response from server", sender: "bot" };
+        
+        // Just display the raw JSON response
+        const botMessage = { 
+          text: JSON.stringify(data, null, 2), 
+          sender: "bot"
+        };
+        
         setMessages((prev) => [...prev, botMessage]);
       } catch (error) {
+        console.error("Error connecting to server:", error);
         const errorMessage = { text: "Error connecting to server", sender: "bot" };
         setMessages((prev) => [...prev, errorMessage]);
+      } finally {
+        setIsLoading(false);
       }
       
       // Clear input
       setInput("");
+    }
+  };
+
+  // Handle send button click
+  const handleSendClick = () => {
+    if (input.trim()) {
+      handleKeyPress({ key: "Enter" });
     }
   };
 
@@ -120,18 +140,35 @@ const ChatInterface = () => {
         <div className="messages">
           {messages.map((msg, index) => (
             <div key={index} className={`message ${msg.sender}`}>
-              {msg.text}
+              <pre className="json-response">{msg.text}</pre>
             </div>
           ))}
+          {isLoading && (
+            <div className="message bot loading">
+              <div className="loading-dots">
+                <span>.</span><span>.</span><span>.</span>
+              </div>
+            </div>
+          )}
         </div>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyPress={handleKeyPress}
-          placeholder="Ask about BART parking, alerts, etc..."
-          className="chat-input"
-        />
+        <div className="input-container">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="Ask about BART parking, alerts, etc..."
+            className="chat-input"
+            disabled={isLoading}
+          />
+          <button 
+            onClick={handleSendClick}
+            disabled={!input.trim() || isLoading}
+            className="send-button"
+          >
+            Send
+          </button>
+        </div>
       </div>
     </div>
   );
