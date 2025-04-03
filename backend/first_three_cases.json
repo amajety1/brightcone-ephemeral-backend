@@ -1,0 +1,129 @@
+{
+    "sports_and_entertainment": {
+      "required_info": ["station_name", "event_type"], 
+      "MacArthur": {
+        "nearby_events": "No major events near MacArthur at the moment.",
+        "warriors_game": "Not directly near a Warriors game, but take BART to the Embarcadero station for Oracle Park.",
+        "live_music": "The Fox Theater is accessible via BART at the 19th Street station."
+      },
+      "Fruitvale": {
+        "nearby_events": "Fruitvale is near the Oakland Coliseum, hosting sports events and concerts.",
+        "warriors_game": "Take BART to the Coliseum station for easy access to Warriors games.",
+        "live_music": "The Fox Theater is accessible via BART at the 19th Street station."
+      },
+      "Oakland": {
+        "nearby_events": "Oakland has several events, such as sports games at the Coliseum and live music venues.",
+        "warriors_game": "Take BART from Oakland station to the Embarcadero station for Oracle Park.",
+        "live_music": "The Fox Theater is accessible via BART at the 19th Street station."
+      }
+    },
+    "general_parking_information": {
+      "required_info": ["station_name"], 
+      "MacArthur": {
+        "has_parking": "Yes",
+        "public_access": "Yes",
+        "pre_booking_available": "No",
+        "parking_cost": "$3 per day",
+        "time_limit": "24 hours",
+        "available_spots": "50",
+        "total_spots": "600",
+        "bike_parking": "Yes",
+        "ev_parking": "Yes, 10 spots",
+        "24_7_access": "Yes",
+        "permit_required": "No",
+        "restrictions": "None",
+        "employee_parking": "No",
+        "booking_method": "N/A",
+        "app_booking": "No",
+        "discounts": "No",
+        "payment_methods": "Cash, card, mobile",
+        "monthly_pass": "Yes, $50",
+        "free_hours": "No",
+        "overstay_consequence": "You’ll be fined",
+        "overstay_penalty": "$25 fine",
+        "disabled_spots": "Yes, 20 spots",
+        "staff_parking": "No",
+        "real_time_check": "Available via BART app"
+      },
+      "Fruitvale": {
+        "has_parking": "Yes",
+        "public_access": "Yes",
+        "pre_booking_available": "No",
+        "parking_cost": "$2 per day",
+        "time_limit": "24 hours",
+        "available_spots": "20",
+        "total_spots": "300",
+        "bike_parking": "Yes",
+        "ev_parking": "No",
+        "24_7_access": "Yes",
+        "permit_required": "No",
+        "restrictions": "None",
+        "employee_parking": "No",
+        "booking_method": "N/A",
+        "app_booking": "No",
+        "discounts": "Yes, $1 off for weekly",
+        "payment_methods": "Card, mobile",
+        "monthly_pass": "Yes, $40",
+        "free_hours": "No",
+        "overstay_consequence": "You’ll be fined",
+        "overstay_penalty": "$20 fine",
+        "disabled_spots": "Yes, 10 spots",
+        "staff_parking": "No",
+        "real_time_check": "Available via BART app"
+      },
+      "Oakland": {
+        "has_parking": "Yes",
+        "public_access": "Yes",
+        "pre_booking_available": "No",
+        "parking_cost": "$5 per day",
+        "time_limit": "24 hours",
+        "available_spots": "100",
+        "total_spots": "800",
+        "bike_parking": "Yes",
+        "ev_parking": "Yes, 20 spots",
+        "24_7_access": "Yes",
+        "permit_required": "No",
+        "restrictions": "None",
+        "employee_parking": "No",
+        "booking_method": "N/A",
+        "app_booking": "Yes",
+        "discounts": "No",
+        "payment_methods": "Card, mobile",
+        "monthly_pass": "Yes, $60",
+        "free_hours": "No",
+        "overstay_consequence": "You’ll be fined",
+        "overstay_penalty": "$30 fine",
+        "disabled_spots": "Yes, 30 spots",
+        "staff_parking": "No",
+        "real_time_check": "Available via BART app"
+      }
+    },
+    "types_of_parking": {
+      "required_info": ["station_name"], 
+      "MacArthur": {
+        "available_types": "Standard, EV, Carpool, Disabled",
+        "ev_parking": "Yes, 10 spots",
+        "carpool_parking": "Yes",
+        "long_term_parking": "Yes",
+        "public_parking": "Yes",
+        "disabled_parking": "Yes, 20 spots"
+      },
+      "Fruitvale": {
+        "available_types": "Standard, Disabled",
+        "ev_parking": "No",
+        "carpool_parking": "Yes",
+        "long_term_parking": "Yes",
+        "public_parking": "Yes",
+        "disabled_parking": "Yes, 10 spots"
+      },
+      "Oakland": {
+        "available_types": "Standard, EV, Carpool, Disabled",
+        "ev_parking": "Yes, 20 spots",
+        "carpool_parking": "Yes",
+        "long_term_parking": "Yes",
+        "public_parking": "Yes",
+        "disabled_parking": "Yes, 30 spots"
+      }
+    }
+  }
+  

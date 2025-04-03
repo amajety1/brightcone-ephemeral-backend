@@ -16,6 +16,8 @@
     "express": "^4.21.2",
     "fast-levenshtein": "^3.0.0",
     "fs": "^0.0.1-security",
+    "fuzzy-search": "^3.2.1",
+    "fuzzywuzzy": "^0.1.0",
     "openai": "^4.91.1"
   }
 }
